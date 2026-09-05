@@ -38,4 +38,4 @@
 1. **Lanzador de Escritorio:** `~/Desktop/Servidor_TV_Soberano.desktop`
 2. **Servidor Local Autónomo:** `~/Desktop/SERVIDOR_TV_SOBERANO.py`
 3. **Bóveda de Medios Privada:** `~/Resistencia_Digital/` (`Videos/`, `Musica/`, `Fotos/`)
-   * Acceso local para el TV: `http://192.168.9.105:8080` (Cero suscripciones, cero DRM, red cerrada).
+   * Acceso local para el TV: `http://192.168.1.X:8080` (Cero suscripciones, cero DRM, red cerrada).

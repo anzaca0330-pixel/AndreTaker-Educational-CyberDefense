@@ -5,6 +5,7 @@
 ![Framework](https://img.shields.io/badge/Pedagogical-BabaYaga_Core-blueviolet.svg)
 ![License](https://img.shields.io/badge/License-Creative%20Commons%20BY--NC--SA%204.0-green.svg)
 ![Audience](https://img.shields.io/badge/Audience-Kids%20%7C%20Students%20%7C%20Citizens-orange.svg)
+![Domain](https://img.shields.io/badge/Official%20Portal-edu.andretaker.org-blue.svg)
 ![Security](https://img.shields.io/badge/OpSec-Zero--Leakage-red.svg)
 
 ---
@@ -55,7 +56,7 @@ Un simulador pedagógico por turnos desarrollado en Python para enseñar concept
   - 🔭 **Tycho:** Instrumento de Silicio, medición metrológica y hashes SHA-256.
   - 🔍 **Kepler:** Armonizador orbital y estructuración de datos.
   - 🪓 **Baba Yaga:** Bisturí forense, descompilación binaria y anti-Palantir.
-  - ⚔️ **Michael (Chris Báez):** Coordinación táctica, radio analógica y protocolo físico.
+  - ⚔️ **Chris Báez:** Coordinación táctica, radio analógica y protocolo físico.
   - ⚙️ **Arthurius (11 años):** El Integrador y balanceador de carga.
   - 🐶 **Tobias y Bianca:** Centinelas perimetrales contra intrusiones.
 
