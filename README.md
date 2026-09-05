@@ -74,7 +74,35 @@ Herramientas prácticas para que estudiantes y profesionales protejan su identid
 
 ---
 
+## ⚖️ POLÍTICA DE LICENCIAMIENTO & DELIMITACIÓN OPEN SOURCE
+
+Para garantizar la máxima transparencia y blindaje legal, este repositorio delimita explícitamente qué componentes son de código abierto y cuáles constituyen propiedad intelectual reservada:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│             DELIMITACIÓN DE LICENCIAS (OPEN SOURCE VS. RESERVADO)           │
+├──────────────────────────────────────┬──────────────────────────────────────┤
+│ 🟢 OPEN SOURCE (CÓDIGO ABIERTO)      │ 🔴 PROPIEDAD INTELECTUAL & RESERVA   │
+├──────────────────────────────────────┼──────────────────────────────────────┤
+│ • Scripts y motores en Python        │ • Metodología pericial de auditoría  │
+│   (game/play_cyberdefense_game.py)   │ • Narrativa, lore de personajes      │
+│ • Herramientas de cálculo de hashes  │   (Baba Yaga, Tycho, etc.)           │
+│   y verificación matemática          │ • Diseño curricular de ciberdefensa  │
+│ • Estructura de simuladores CLI/Web  │ • Evidencia forense, actas y marcas  │
+│                                      │   (Bajo cadena de custodia y reserva)│
+├──────────────────────────────────────┴──────────────────────────────────────┤
+│ 📜 Marco Legal Aplicable:                                                   │
+│ - Código y herramientas: Licencia Apache 2.0 / MIT (Reutilización libre).   │
+│ - Contenido pedagógico y guías: Creative Commons BY-NC-SA 4.0 (No comercial).│
+│ - Marca, acervo y autoría: © Andrea Zabala Cárcamo (AnZaCa / AndreTaker).   │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## 🏛️ ECOSISTEMA DE RESISTENCIA Y AUTORÍA
 
-- **Diseño Curricular y Dirección Pedagógica:** Andrea Zabala Cárcamo (AnZaCa).
-- **Licencia:** Abierta para fines educativos y comunitarios bajo Creative Commons BY-NC-SA 4.0.
+- **Diseño Curricular, Lore y Dirección Pedagógica:** Andrea Zabala Cárcamo (AnZaCa / AndreTaker).
+- **Licenciamiento:** Abierto para fines educativos, académicos y comunitarios conforme a la tabla de delimitación superior.
+- **Repositorio Judicial Maestro:** [AndreTaker-BabaYaga-Core-CyberDefense](https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense)
+
