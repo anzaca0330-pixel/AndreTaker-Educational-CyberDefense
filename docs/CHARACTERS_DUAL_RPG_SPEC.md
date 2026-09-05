@@ -93,3 +93,13 @@
   * Un sabio cartógrafo con brújula estelar y mapas flotantes que ayuda a los niños a ordenar sus archivos y pistas para resolver misterios paso a paso.
 * **Versión Adultos (Cyber-Ops):**
   * Arquitecto de síntesis y coherencia jurídica que une las ramas técnica, legal y ciudadana en expedientes blindados e irrebatibles.
+
+---
+
+### 3. LA GRAN ANALOGÍA PEDAGÓGICA (PARA NIÑOS Y ESCUELAS)
+#### 💧 "Internet es como el Agua en las Tuberías de tu Casa"
+* **Las Tuberías de Cobre (El Cable):** Los cables son como las mangueras y tubos limpios y sellados. El agua viaja segura por dentro directo a tu grifo sin que nadie se la robe ni la contamine.
+* **El Aspersor en el Patio (El Wi-Fi):** El Wi-Fi es como poner un aspersor que tira agua para todos lados en el jardín. Todos los vecinos y pajaritos pueden ver las gotas volando. Si quieres guardar un secreto, ¡usa la tubería cerrada, no el aspersor!
+* **Las Fugas (Data Leaks):** Si una llave gotea, se desperdicia agua. En internet, una fuga es cuando dejas contraseñas fáciles o haces clic donde no debes.
+* **Aprender el Oficio antes del Diploma:** Para ser un gran navegante o constructor, primero aprendes a apretar las tuercas con tus propias manos, a cuidar a tu familia y a no tenerle miedo al trabajo duro. El papel del diploma llega después, pero la fuerza ya la llevas por dentro.
+
