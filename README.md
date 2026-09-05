@@ -1,18 +1,20 @@
-# 🎓 ANDRETAKER — EDUCATIONAL CYBERDEFENSE PLATFORM
+# 🎓 AndreTaker — BabaYaga Core Educational Module
 ### Framework Pedagógico de Ciberdefensa, Alfabetización Digital & Juego Cívico "Guardianes Digitales"
 
-![Educational Platform](https://img.shields.io/badge/Pedagogical-Framework_v1.0-blue.svg)
-![License](https://img.shields.io/badge/License-Creative%20Commons%20BY--NC--SA-green.svg)
-![Target](https://img.shields.io/badge/Audience-Students%20%7C%20Academia%20%7C%20Citizens-orange.svg)
+![Version](https://img.shields.io/badge/Edition-Dual--Tier_RPG_v1.0-cyan.svg)
+![Framework](https://img.shields.io/badge/Pedagogical-BabaYaga_Core-blueviolet.svg)
+![License](https://img.shields.io/badge/License-Creative%20Commons%20BY--NC--SA%204.0-green.svg)
+![Audience](https://img.shields.io/badge/Audience-Kids%20%7C%20Students%20%7C%20Citizens-orange.svg)
+![Security](https://img.shields.io/badge/OpSec-Zero--Leakage-red.svg)
 
 ---
 
 ## 🎯 MISIÓN Y PROPÓSITO EDUCATIVO
 
-La plataforma **AndreTaker Educational CyberDefense** es una iniciativa de alfabetización tecnológica y ciberseguridad ciudadana diseñada por **Andrea Zabala Cárcamo (AnZaCa)**. Su objetivo es democratizar la comprensión de conceptos avanzados de seguridad informática (criptografía, detección de manipulaciones digitales, auditoría de datos e ingeniería social) a través de la pedagogía activa y la gamificación táctica.
+El módulo educativo **AndreTaker — BabaYaga Core Educational Module** es una iniciativa de alfabetización tecnológica, soberanía digital y ciberdefensa ciudadana diseñada y dirigida por **Andrea Zabala Cárcamo (AnZaCa / AndreTaker)**. Su objetivo es democratizar la comprensión de conceptos avanzados de seguridad informática (criptografía, detección de manipulaciones digitales, auditoría de datos, soberanía de redes e ingeniería social) a través de la pedagogía activa y la gamificación táctica dual (para niños y adultos).
 
 > **💡 NOTA METODOLÓGICA:**  
-> Este repositorio constituye la **división pedagógica y formativa**. La evidencia técnica forense dura, peritajes judiciales para tribunales (CIDH/FBI) y descompilación binaria ISO 32000-1 se preservan de forma rigurosa e independiente en el **[Repositorio Judicial Maestro](https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense)** y en **[andretaker.org](https://www.andretaker.org/)**.
+> Este repositorio constituye el **módulo pedagógico y formativo independiente**. La evidencia técnica forense dura, peritajes judiciales para tribunales internacionales (CIDH/FBI) y descompilación binaria ISO 32000-1 se preservan de forma rigurosa en el **[Repositorio Judicial Maestro](https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense)** y en **[andretaker.org](https://www.andretaker.org/)**.
 
 ---
 
