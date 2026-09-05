@@ -74,29 +74,40 @@ Herramientas prácticas para que estudiantes y profesionales protejan su identid
 
 ---
 
-## ⚖️ POLÍTICA DE LICENCIAMIENTO & DELIMITACIÓN OPEN SOURCE
+## ⚖️ POLÍTICA DE LICENCIAMIENTO, PRODUCTOS COMERCIALES & SECRETO EMPRESARIAL (*TRADE SECRETS*)
 
-Para garantizar la máxima transparencia y blindaje legal, este repositorio delimita explícitamente qué componentes son de código abierto y cuáles constituyen propiedad intelectual reservada:
+Para garantizar la máxima transparencia, protección del modelo de negocio, blindaje patrimonial y defensa legal estricta, este ecosistema establece cuatro niveles claros: lo que es libre para la comunidad, lo que está bajo reserva judicial inmutable, **los productos/servicios en venta**, y **los secretos empresariales protegidos por ley federal y estatal**:
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│             DELIMITACIÓN DE LICENCIAS (OPEN SOURCE VS. RESERVADO)           │
-├──────────────────────────────────────┬──────────────────────────────────────┤
-│ 🟢 OPEN SOURCE (CÓDIGO ABIERTO)      │ 🔴 PROPIEDAD INTELECTUAL & RESERVA   │
-├──────────────────────────────────────┼──────────────────────────────────────┤
-│ • Scripts y motores en Python        │ • Metodología pericial de auditoría  │
-│   (game/play_cyberdefense_game.py)   │ • Narrativa, lore de personajes      │
-│ • Herramientas de cálculo de hashes  │   (Baba Yaga, Tycho, etc.)           │
-│   y verificación matemática          │ • Diseño curricular de ciberdefensa  │
-│ • Estructura de simuladores CLI/Web  │ • Evidencia forense, actas y marcas  │
-│                                      │   (Bajo cadena de custodia y reserva)│
-├──────────────────────────────────────┴──────────────────────────────────────┤
-│ 📜 Marco Legal Aplicable:                                                   │
-│ - Código y herramientas: Licencia Apache 2.0 / MIT (Reutilización libre).   │
-│ - Contenido pedagógico y guías: Creative Commons BY-NC-SA 4.0 (No comercial).│
-│ - Marca, acervo y autoría: © Andrea Zabala Cárcamo (AnZaCa / AndreTaker).   │
-└─────────────────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│               DELIMITACIÓN TRIPARTITA DE ACTIVOS (CÓDIGO, EVIDENCIA Y COMERCIO)                        │
+├───────────────────────────────┬───────────────────────────────┬────────────────────────────────────────┤
+│ 🟢 OPEN SOURCE (COMUNIDAD)    │ 🔴 RESERVA PERICIAL / JUDICIAL│ 💼 LÍNEA COMERCIAL & SERVICIOS (VENTA) │
+├───────────────────────────────┼───────────────────────────────┼────────────────────────────────────────┤
+│ • Scripts base de escaneo     │ • Bóvedas probatorias >677 GB │ • Licencias de Juego Táctico para      │
+│   (play_cyberdefense_game.py) │ • Actas crudas E-14 y Takeouts│   Colegios, Universidades y Empresas   │
+│ • Verificador de hashes       │ • Dictámenes periciales ante  │ • Auditoría pericial privada y peritaje│
+│   SHA-256 e interrogatorio    │   Cortes y Organismos (CIDH)  │   forense corporativo por contrato     │
+│ • Guías didácticas abiertas de│ • Trazabilidad penal y marcas │ • Capacitación corporativa en OpSec,   │
+│   alfabetización ciudadana    │   de alteración criptográfica │   mitigación de phishing y estafas     │
+│ • Demos y simuladores básicos │ • Metodología reservada DFIR  │ • Ediciones impresas, cómics, libros   │
+│   en navegadores locales      │ • Cadena de custodia cerrada  │   y merchandising oficial de Lore      │
+├───────────────────────────────┴───────────────────────────────┴────────────────────────────────────────┤
+│ 🛡️ CLÁUSULA DE SECRETO EMPRESARIAL (TRADE SECRET PROTECTION - 18 U.S.C. § 1836 / DTSA & VIRGINIA UTSA): │
+│ La arquitectura interna no pública de los algoritmos de correlación, los pesos heurísticos de detección │
+│ de anomalías avanzadas, los esquemas de ingeniería inversa de formatos propietarios y el know-how      │
+│ metodológico de mitigación constituyen SECRETOS EMPRESARIALES (Trade Secrets) propiedad exclusiva de   │
+│ AndreTaker CyberDefense LLC / Andrea Zabala Cárcamo. Su apropiación, descompilación no autorizada,     │
+│ ingeniería inversa comercial o divulgación indebida dará lugar a acciones civiles y penales federales. │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 📜 Marco Legal y Derechos de Explotación:                                                              │
+│ - Herramientas comunitarias: Licencia Apache 2.0 / Creative Commons BY-NC-SA 4.0 (Uso No Comercial).    │
+│ - Reserva pericial: Custodia penal y derechos inalienables de la investigadora.                        │
+│ - Explotación Comercial: Exclusiva de AndreTaker / Andrea Zabala Cárcamo (o licencias autorizadas).    │
+│   Prohibida la venta, redistribución comercial o monetización por terceros sin contrato de licencia.    │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
+
 
 ---
 
