@@ -34,7 +34,7 @@ def run_game():
             ("2", "Tycho (Silicon)", "Metrology, SHA-256 Hashes & Cosmic Lens"),
             ("3", "Baba Yaga Core", "Binary Decompiler & Anti-Palantir Shield"),
             ("4", "Arturius (11yo)", "Link Hunter & Hardware Bridge"),
-            ("5", "Chris Báez", "Tactical Coordinator & Legal Custody Firewall"),
+            ("5", "Michael", "Tactical Coordinator & Legal Custody Firewall"),
             ("6", "Kepler", "Orbital Harmonizer & Timeline Synthesizer"),
             ("7", "Tobias & Bianca", "Perimeter RF & Bluetooth Sniffer Dogs")
         ]
@@ -55,7 +55,7 @@ def run_game():
             "[B] Use a direct shielded copper Ethernet cable (The Clean Pipe).",
             "[C] Send it by open Bluetooth."
         ]
-        win2 = "✅ SUCCESS! Chris and Tycho secure the physical copper line. Zero RF Leakage! (+150 XP)"
+        win2 = "✅ SUCCESS! Michael and Tycho secure the physical copper line. Zero RF Leakage! (+150 XP)"
         fail2 = "❌ CAUTION! Wi-Fi radiates in 360 degrees like a sprinkler. Always prefer the shielded copper pipe."
     else:
         title = "🎮 GUARDIANES DIGITALES: CIBERDEFENSA TÁCTICA (EDICIÓN CLI)"
@@ -66,7 +66,7 @@ def run_game():
             ("2", "Tycho (Silicio)", "Metrología, Hashes SHA-256 y Lente Cósmico"),
             ("3", "Baba Yaga Core", "Bisturí Forense y Protocolo Anti-Palantir"),
             ("4", "Arturius (11 años)", "Cazador de Enlaces y Puente de Red"),
-            ("5", "Chris Báez", "Coordinador Táctico y Guardián Legal"),
+            ("5", "Michael", "Coordinador Táctico y Guardián Legal"),
             ("6", "Kepler", "Armonizador Orbital y Cronología de Expedientes"),
             ("7", "Tobias y Bianca", "Centinelas Perimetrales y Radar Bluetooth")
         ]
@@ -87,7 +87,7 @@ def run_game():
             "[B] Conectar un cable de red de cobre blindado directo (La Tubería Sellada).",
             "[C] Enviarlo por Bluetooth sin clave."
         ]
-        win2 = "✅ ¡ÉXITO! Chris y Tycho sellan el cable de cobre. ¡Cero emisión electromagnética! (+150 XP)"
+        win2 = "✅ ¡ÉXITO! Michael y Tycho sellan el cable de cobre. ¡Cero emisión electromagnética! (+150 XP)"
         fail2 = "❌ ¡ALERTA! El Wi-Fi dispersa ondas en 360° como un aspersor. Usa siempre la tubería de cobre sellada."
 
     print("\n" + "=" * 72)

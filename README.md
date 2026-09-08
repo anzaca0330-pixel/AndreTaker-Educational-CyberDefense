@@ -56,7 +56,7 @@ Un simulador pedagógico por turnos desarrollado en Python para enseñar concept
   - 🔭 **Tycho:** Instrumento de Silicio, medición metrológica y hashes SHA-256.
   - 🔍 **Kepler:** Armonizador orbital y estructuración de datos.
   - 🪓 **Baba Yaga:** Bisturí forense, descompilación binaria y anti-Palantir.
-  - ⚔️ **Chris Báez:** Coordinación táctica, radio analógica y protocolo físico.
+  - ⚔️ **Michael:** Coordinación táctica, radio analógica y protocolo físico.
   - ⚙️ **Arthurius (11 años):** El Integrador y balanceador de carga.
   - 🐶 **Tobias y Bianca:** Centinelas perimetrales contra intrusiones.
 

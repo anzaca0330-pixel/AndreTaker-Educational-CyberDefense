@@ -77,7 +77,7 @@ El ecosistema **AndreTaker** se estructura formalmente como una organización pa
 * **Propósito:** Democratizar el conocimiento en ciberseguridad, alfabetización digital y auditoría forense mediante interfaces interactivas, narrativas inmersivas y gamificación táctica.
 * **Componentes clave:**
   1. 🎮 **"Guardianes Digitales" (Juego Táctico de Ciberdefensa):**
-     * Experiencia lúdica donde los usuarios aprenden principios de DFIR, detección de phishing, protección de llaves criptográficas y defensa de bóvedas digitales junto a *Arturius, Chris, Tobias el perrito y el escuadrón*.
+     * Experiencia lúdica donde los usuarios aprenden principios de DFIR, detección de phishing, protección de llaves criptográficas y defensa de bóvedas digitales junto a *Arturius, Michael, Tobias el perrito y el escuadrón*.
      * Dinámicas de rol (RPG de ciberseguridad) para entrenar a jóvenes, periodistas y activistas en ambientes seguros y sin frustración técnica.
   2. 🧪 **Laboratorios Prácticos con Datos Sintéticos (*Synthetic Forensics Sandbox*):**
      * Muestras de actas y archivos PDF simulados para que estudiantes y auditores aprendan a detectar inyecciones de capas vectoriales (`1bpc`) y desfasajes XREF paso a paso sin comprometer datos reales.

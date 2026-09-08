@@ -2,7 +2,7 @@
 ## AndreTaker Educational & Guardianes Digitales (Pilar Educativo)
 
 **Coordinación de Pedagogía y Diseño:** Johannes (AnZaCa), Kepler & Tycho  
-**Enlace Lúdico & RPG:** Chris & Arturius  
+**Enlace Lúdico & RPG:** Michael & Arturius  
 **Versión:** 1.0.0-EDUCATIONAL  
 **Fecha:** Septiembre 2026  
 **Público Objetivo:** Jóvenes, familias, activistas, periodistas, estudiantes y auditores periciales.
@@ -44,7 +44,7 @@ El conocimiento que no se comparte queda vulnerable al olvido. La misión de **A
 * **Modelo de Despliegue Abierto & Sin Costo Prohibitivo:**
   * Binario autónomo sin conexión a internet (*Offline First / Standalone AppImage / Web*) para funcionar en salas de cómputo comunitarias con computadores básicos o recursos limitados.
   * Cero licencias privativas por usuario: un solo archivo descargable libre para todo un colegio o pequeña ONG.
-* **Concepto Narrativo:** Un universo interactivo donde el jugador acompaña a *Arturius, Chris, Tobias (el centinela perimetral) y Bianca* para defender la "Bóveda de la Verdad" frente a ciberamenazas, campañas de desinformación y ataques silenciosos.
+* **Concepto Narrativo:** Un universo interactivo donde el jugador acompaña a *Arturius, Michael, Tobias (el centinela perimetral) y Bianca* para defender la "Bóveda de la Verdad" frente a ciberamenazas, campañas de desinformación y ataques silenciosos.
 * **Mecánicas Pedagógicas:**
   1. **El Escudo Criptográfico:** Aprendizaje visual del funcionamiento de hashes SHA-256 mediante rompecabezas de integridad (si un bloque cambia 1 bit, el color del portal colapsa).
   2. **Rastreo de Balizas:** Identificación de conexiones no autorizadas, torres celulares anómalas y redes Wi-Fi gemelas (*Evil Twin*).
