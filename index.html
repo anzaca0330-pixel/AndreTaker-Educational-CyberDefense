@@ -288,6 +288,28 @@
           La inserción de delimitadores neutros previene la extracción automatizada por patrones estáticos.
         </p>
       </div>
+
+      <!-- RECURSO HISTÓRICO Y EDUCATIVO: SIGUIENDO LA ANOMALÍA PDF -->
+      <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 12px; padding: 14px; margin-top: 14px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+          <span style="font-size: 1.6rem;">📄</span>
+          <div>
+            <div id="txt-pdf-title" style="font-weight: 800; font-size: 0.95rem; color: #38bdf8;">Siguiendo la Anomalía PDF: El Rastro</div>
+            <div id="txt-pdf-sub" style="font-size: 0.72rem; color: var(--muted);">Historia Documental y Metodología Forense de la Investigación (15 págs)</div>
+          </div>
+        </div>
+        <p id="txt-pdf-desc" style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.4; margin: 8px 0 12px 0;">
+          La bitácora narrativa y pericial que documenta el hallazgo del enmascaramiento digital, el blindaje de datos E-14 y la resistencia contra el asedio cibernético.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a id="btn-pdf-view" href="docs/pdf/Siguiendo_la_Anomalia_PDF_El_Rastro.pdf" target="_blank" style="flex: 1; min-width: 130px; text-align: center; text-decoration: none; background: #0284c7; color: #fff; font-weight: 700; font-size: 0.8rem; padding: 10px 12px; border-radius: 8px; display: inline-block; box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);">
+            📖 Leer Documento
+          </a>
+          <a id="btn-pdf-download" href="docs/pdf/Siguiendo_la_Anomalia_PDF_El_Rastro.pdf" download="Siguiendo_la_Anomalia_PDF_El_Rastro.pdf" style="flex: 1; min-width: 130px; text-align: center; text-decoration: none; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; font-weight: 700; font-size: 0.8rem; padding: 10px 12px; border-radius: 8px; display: inline-block;">
+            📥 Descargar PDF
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -393,7 +415,12 @@
         btnHarden: "🛡️ Blindar Puertos",
         btnMirror: "😈 Espejo de Azufre",
         flagTitle: "🚩 ¡VICTORIA TOTAL! BANDERA CAPTURADA",
-        flagSub: "El nodo adversario ha sido neutralizado. Desplegando estandarte supremo:"
+        flagSub: "El nodo adversario ha sido neutralizado. Desplegando estandarte supremo:",
+        pdfTitle: "Siguiendo la Anomalía PDF: El Rastro",
+        pdfSub: "Historia Documental y Metodología Forense de la Investigación (15 págs)",
+        pdfDesc: "La bitácora narrativa y pericial que documenta el hallazgo del enmascaramiento digital, el blindaje de datos E-14 y la resistencia contra el asedio cibernético.",
+        btnPdfView: "📖 Leer Documento",
+        btnPdfDownload: "📥 Descargar PDF"
       },
       en: {
         appTitle: "🌐 ROUTING SIMULATOR",
@@ -425,7 +452,12 @@
         btnHarden: "🛡️ Harden Ports",
         btnMirror: "😈 Sulfur Mirror",
         flagTitle: "🚩 TOTAL VICTORY! FLAG CAPTURED",
-        flagSub: "Opponent node neutralized. Raising the supreme banner:"
+        flagSub: "Opponent node neutralized. Raising the supreme banner:",
+        pdfTitle: "Following the PDF Anomaly: The Trail",
+        pdfSub: "Documentary History & Forensic Methodology of the Investigation (15 pages)",
+        pdfDesc: "The narrative and forensic field log documenting the discovery of digital masking, the E-14 evidence shielding, and endurance under cyber siege.",
+        btnPdfView: "📖 Read Document",
+        btnPdfDownload: "📥 Download PDF"
       }
     };
 
@@ -549,6 +581,13 @@
       document.getElementById('btn-arena-mirror').innerText = s.btnMirror;
       document.getElementById('txt-flag-title').innerText = s.flagTitle;
       document.getElementById('txt-flag-sub').innerText = s.flagSub;
+      if (document.getElementById('txt-pdf-title')) {
+        document.getElementById('txt-pdf-title').innerText = s.pdfTitle;
+        document.getElementById('txt-pdf-sub').innerText = s.pdfSub;
+        document.getElementById('txt-pdf-desc').innerText = s.pdfDesc;
+        document.getElementById('btn-pdf-view').innerText = s.btnPdfView;
+        document.getElementById('btn-pdf-download').innerText = s.btnPdfDownload;
+      }
 
       renderScenario();
     }
