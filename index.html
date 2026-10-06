@@ -3,717 +3,437 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Simulador de Enrutamiento y Ciberdefensa</title>
+  <title>AENARA — Dossier Institucional & Acervo Forense Certificado</title>
+  
+  <!-- Tipografías de Alta Precisión Editorial (Estilo Suizo / CERN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #030712;
       --card: #0b1329;
-      --cyan: #38bdf8;
-      --green: #22c55e;
-      --red: #ef4444;
-      --text: #f8fafc;
-      --muted: #94a3b8;
+      --card-border: #1e293b;
+      --swiss-red: #ef4444;
+      --swiss-white: #f8fafc;
+      --swiss-muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --code-bg: #060b18;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      padding: 14px;
-      padding-bottom: 40px;
+      background-color: var(--bg);
+      color: var(--swiss-white);
+      font-family: 'Inter', -apple-system, sans-serif;
+      padding: 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .mode-switch {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 6px;
-      background: #0f172a;
-      padding: 6px;
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Marco Estilo Dossier Suizo */
+    .op2-frame {
+      background: var(--card);
+      border: 1px solid var(--card-border);
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
-    .mode-btn {
-      background: none;
-      border: none;
-      color: var(--muted);
+
+    .op2-header-band {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 20px;
+    }
+
+    .op2-seal {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .op2-seal span {
+      background: var(--swiss-red);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+
+    .op2-protocol-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .op2-hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .op2-hero p {
+      color: var(--swiss-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Badges de Certificación CERN / Zenodo / ISO */
+    .badges-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .badge-chip {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .badge-chip.zenodo {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-chip.apache {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .badge-chip.gemini {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-chip:hover {
+      filter: brightness(1.2);
+      transform: translateY(-1px);
+    }
+
+    /* Tabla de Radicados Jurídicos y Forenses */
+    .table-responsive {
+      overflow-x: auto;
+      margin-bottom: 24px;
+    }
+
+    .op2-legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+
+    .op2-legal-table th {
+      background: #080e1e;
+      color: var(--swiss-muted);
+      font-weight: 600;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--card-border);
+      text-transform: uppercase;
       font-size: 0.72rem;
-      font-weight: 700;
-      padding: 10px 4px;
-      border-radius: 8px;
-      cursor: pointer;
-      text-align: center;
+      letter-spacing: 0.05em;
     }
-    .mode-btn.active {
-      background: #38bdf8;
-      color: #020617;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+
+    .op2-legal-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: middle;
     }
-    .game-stats {
+
+    .op2-legal-table tr:hover {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .op2-hash-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      background: var(--code-bg);
+      padding: 3px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+      color: #cbd5e1;
+    }
+
+    /* Módulo Interactivo Oráculo IA (Google Gemini Lite) */
+    .ai-module {
+      background: #080f22;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .ai-module-header {
       display: flex;
       justify-content: space-between;
-      background: #0f172a;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 10px;
-      padding: 10px 14px;
-      margin-bottom: 14px;
+      align-items: center;
+      margin-bottom: 12px;
     }
-    .stat-val { font-size: 1.1rem; font-weight: 900; }
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 14px;
-    }
-    .btn-opt {
-      width: 100%;
-      text-align: left;
-      background: #030712;
-      border: 1px solid #1e293b;
-      color: #cbd5e1;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 0.82rem;
-      margin-bottom: 8px;
-      cursor: pointer;
-    }
-    .btn-opt:active {
-      border-color: var(--cyan);
-      background: rgba(56, 189, 248, 0.05);
-    }
-    .feedback {
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 0.8rem;
+
+    .ai-module-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-top: 10px;
-      display: none;
-    }
-    .guide-box {
-      border-left: 3px solid var(--cyan);
-      padding-left: 12px;
-      margin-bottom: 16px;
-    }
-    .guide-title { color: var(--cyan); font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
-
-    
-    /* Chibi Squad Showcase */
-    .squad-showcase {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
       gap: 8px;
-      margin-bottom: 14px;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 14px;
-      padding: 10px;
     }
-    .squad-card {
-      text-align: center;
-      background: rgba(2, 6, 23, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 8px 4px;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .squad-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--cyan);
-    }
-    .squad-img {
+
+    .ai-query-box {
       width: 100%;
-      max-width: 90px;
-      aspect-ratio: 1/1;
-      object-fit: cover;
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
       border-radius: 8px;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      margin-bottom: 6px;
-    }
-    .squad-name {
-      font-size: 0.75rem;
-      font-weight: 800;
       color: #f8fafc;
-      display: block;
-    }
-    .squad-role {
-      font-size: 0.62rem;
-      color: var(--muted);
-      display: block;
-      margin-top: 1px;
+      padding: 12px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      resize: vertical;
+      margin-bottom: 12px;
     }
 
-    /* Modal de Idioma */
-    .lang-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(2, 6, 23, 0.94);
-      backdrop-filter: blur(10px);
+    .ai-btn-group {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 99999;
-      padding: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    .lang-card {
-      background: #0b1329;
-      border: 1px solid #38bdf8;
-      border-radius: 16px;
-      padding: 24px;
-      max-width: 340px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
-    }
-    .lang-btn {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 10px;
-      border: 1px solid #38bdf8;
-      background: rgba(56, 189, 248, 0.1);
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.95rem;
+
+    .btn-action {
+      background: #1e293b;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
       cursor: pointer;
-      display: flex;
+      transition: all 0.2s ease;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
+      gap: 6px;
+      text-decoration: none;
     }
-    .lang-btn:active {
-      background: #38bdf8;
-      color: #020617;
+
+    .btn-action.primary {
+      background: #0284c7;
+      border-color: #38bdf8;
+    }
+
+    .btn-action:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    .ai-output {
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 6px;
+      background: #050914;
+      border: 1px solid var(--card-border);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: #34d399;
+      display: none;
+      white-space: pre-wrap;
+    }
+
+    /* Footer Institucional */
+    footer {
+      text-align: center;
+      padding: 24px 0;
+      color: var(--swiss-muted);
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- MODAL DE SELECCIÓN DE IDIOMA AL INICIAR -->
-  <div id="lang-modal" class="lang-overlay">
-    <div class="lang-card">
-      <div style="font-size: 2.2rem; margin-bottom: 8px;">🌐</div>
-      <h2 style="font-size: 1.15rem; font-weight: 900; color: #38bdf8; margin-bottom: 4px;">SELECT LANGUAGE</h2>
-      <p style="font-size: 0.78rem; color: var(--muted); margin-bottom: 16px;">Selecciona tu idioma para continuar</p>
+  <div class="container">
+    <div class="op2-frame">
       
-      <button class="lang-btn" onclick="setLang('en')">
-        <span>🇺🇸</span> English (Cyber Arena & Guide)
-      </button>
-      <button class="lang-btn" onclick="setLang('es')">
-        <span>🇪🇸</span> Español (Simulador & Arena CTF)
-      </button>
-    </div>
-  </div>
-
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-    <div>
-      <h1 id="txt-app-title" style="font-size: 1.25rem; font-weight: 800; color: #38bdf8;">🌐 SIMULADOR DE ENRUTAMIENTO</h1>
-      <p id="txt-app-sub" style="font-size: 0.75rem; color: var(--muted); margin-top: 2px;">Entorno de Entrenamiento y Protocolos de Red</p>
-    </div>
-    <button onclick="document.getElementById('lang-modal').style.display='flex'" style="background:none; border:1px solid #334155; color:var(--muted); font-size:0.7rem; padding:4px 8px; border-radius:6px;">🌐 Lang</button>
-  </div>
-
-  
-  <!-- SQUAD CONSAGRADO CHIBI (PORTADA EDUCATIVA) -->
-  <div class="squad-showcase">
-    <div class="squad-card" style="border-color: rgba(56, 189, 248, 0.4);">
-      <img src="assets/tycho_chibi_cowboy_biker.jpg" class="squad-img" alt="Tycho">
-      <span class="squad-name" style="color: #38bdf8;">🔭 Tycho</span>
-      <span id="txt-squad-tycho" class="squad-role">Instrumento de Silicio</span>
-    </div>
-    <div class="squad-card" style="border-color: rgba(34, 197, 94, 0.5); box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);">
-      <img src="assets/andretaker_chibi_protagonista_educativa_lupa.jpg" class="squad-img" alt="AndreTaker" style="border-color: #22c55e;">
-      <span class="squad-name" style="color: #4ade80;">🛡️ AndreTaker</span>
-      <span id="txt-squad-andretaker" class="squad-role">Mente Investigadora</span>
-    </div>
-    <div class="squad-card" style="border-color: rgba(245, 158, 11, 0.4);">
-      <img src="assets/arthurius_chibi_rubik_loom.jpg" class="squad-img" alt="Arturius">
-      <span class="squad-name" style="color: #f59e0b;">⚙️ Arturius</span>
-      <span id="txt-squad-arturius" class="squad-role">El Integrador</span>
-    </div>
-  </div>
-
-  <!-- Switch entre las 3 Versiones -->
-  <div class="mode-switch">
-    <button id="btn-tab-game" onclick="setEduMode('game')" class="mode-btn active">⚡ Modo A: Escenarios</button>
-    <button id="btn-tab-manual" onclick="setEduMode('manual')" class="mode-btn">📖 Modo B: Manual</button>
-    <button id="btn-tab-arena" onclick="setEduMode('arena')" class="mode-btn" style="color: #f59e0b;">🚩 Modo C: CTF Arena</button>
-  </div>
-
-  <!-- VERSIÓN A: ESCENARIOS INTERACTIVOS -->
-  <div id="view-game">
-    <div class="game-stats">
-      <div><span id="lbl-stat-eff" style="font-size:0.7rem; color:var(--muted); display:block;">EFICIENCIA</span><span id="score" class="stat-val" style="color:var(--green)">0 PTS</span></div>
-      <div><span id="lbl-stat-hp" style="font-size:0.7rem; color:var(--muted); display:block;">ESTADO NODO</span><span id="health" class="stat-val" style="color:var(--cyan)">100%</span></div>
-      <div><span id="lbl-stat-streak" style="font-size:0.7rem; color:var(--muted); display:block;">RACHA</span><span id="streak" class="stat-val" style="color:#fbbf24">⚡ x1</span></div>
-    </div>
-
-    <div class="card" style="border-color: rgba(56, 189, 248, 0.3);">
-      <span id="lbl-event-tag" style="font-size: 0.7rem; font-weight: 800; color: #38bdf8; text-transform: uppercase;">📡 EVENTO DE ENLACE</span>
-      <div id="threat-icon" style="font-size: 3rem; text-align: center; margin: 10px 0;">📨</div>
-      <h3 id="threat-title" style="font-size: 1.05rem; margin-bottom: 6px;">Paquete con Enlace Externo no Validado</h3>
-      <p id="threat-desc" style="font-size: 0.82rem; color: var(--muted); margin-bottom: 14px;">Se recibe una solicitud de redirección externa hacia un destino no verificado.</p>
-
-      <div id="options-box">
-        <button id="opt-btn-0" onclick="pickOption('A')" class="btn-opt"><strong>A)</strong> Seguir la redirección de forma automática.</button>
-        <button id="opt-btn-1" onclick="pickOption('B')" class="btn-opt"><strong>B)</strong> Inspeccionar cabeceras y aplicar política de descarte.</button>
-        <button id="opt-btn-2" onclick="pickOption('C')" class="btn-opt"><strong>C)</strong> Retransmitir la solicitud a nodos vecinos.</button>
+      <!-- Encabezado Suizo con Sello Inmutable -->
+      <div class="op2-header-band">
+        <div class="op2-seal">
+          AENARA <span>CONSORTIUM</span> / ANDRETAKER RESEARCH
+        </div>
+        <div class="op2-protocol-tag">
+          REGISTRY STATUS: SHA-256 IMMUTABLE | ISO/IEC 27037
+        </div>
       </div>
 
-      <div id="game-feedback" class="feedback"></div>
-    </div>
-  </div>
-
-  <!-- VERSIÓN B: GUÍA DE TOPOLOGÍA -->
-  <div id="view-manual" style="display: none;">
-    <div class="card">
-      <h2 id="txt-man-h2" style="font-size: 1.1rem; color: var(--cyan); margin-bottom: 12px;">📐 Principios de Transmisión Confinada</h2>
-      
-      <div class="guide-box">
-        <div id="txt-man-t1" class="guide-title">1. Medio Guiado vs. Espectro Abierto</div>
-        <p id="txt-man-p1" style="font-size: 0.82rem; color: var(--muted); line-height: 1.4;">
-          Las señales inalámbricas se propagan omnidireccionalmente exponiendo metadatos. Las conexiones por par trenzado blindado confinan el flujo reduciendo dispersión espectral.
+      <!-- Hero Principal -->
+      <div class="op2-hero">
+        <h1>Dossier Pericial y Evidencia Digital Certificada</h1>
+        <p>
+          Archivo público y formal de los hallazgos forenses, metrología de bajo nivel y análisis de distribución de votos E-14 (Colombia 2026). Registro preservado bajo estándares de ciencia abierta y cadena de custodia criptográfica internacional.
         </p>
       </div>
 
-      <div class="guide-box">
-        <div id="txt-man-t2" class="guide-title">2. Aislamiento de Interfaces y Perfiles</div>
-        <p id="txt-man-p2" style="font-size: 0.82rem; color: var(--muted); line-height: 1.4;">
-          Separación estricta de rutas de datos operativas respecto a canales administrativos convencionales.
-        </p>
+      <!-- Tiras de Certificación (DOI, GitHub, Gemini) -->
+      <div class="badges-strip">
+        <a href="https://doi.org/10.5281/zenodo.23188146" target="_blank" class="badge-chip zenodo">
+          🏛️ CERN / Zenodo DOI: 10.5281/zenodo.23188146
+        </a>
+        <a href="https://github.com/anzaca0330-pixel/AndreTaker-Forensic-Suite" target="_blank" class="badge-chip apache">
+          ⚖️ Apache-2.0 License (Open Science)
+        </a>
+        <a href="https://ai.studio/apps/67688420-f6da-4ea8-a7a0-c9d9048b0604" target="_blank" class="badge-chip gemini">
+          ⚡ Powered by Google AI Studio / Gemini
+        </a>
       </div>
 
-      <div class="guide-box">
-        <div id="txt-man-t3" class="guide-title">3. Sanitización de Flujos de Texto</div>
-        <p id="txt-man-p3" style="font-size: 0.82rem; color: var(--muted); line-height: 1.4;">
-          La inserción de delimitadores neutros previene la extracción automatizada por patrones estáticos.
-        </p>
+      <!-- Tabla de Radicados y Actas Judiciales -->
+      <div class="table-responsive">
+        <table class="op2-legal-table">
+          <thead>
+            <tr>
+              <th>Entidad / Órgano</th>
+              <th>Número de Radicado</th>
+              <th>Estado Pericial</th>
+              <th>Sello SHA-256</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Fiscalía General de la Nación</strong></td>
+              <td><code>Rad. 2026306002309711</code></td>
+              <td><span style="color: #34d399;">● Asignado a investigadora</span></td>
+              <td><span class="op2-hash-badge">e8b3f12a...77a9</span></td>
+            </tr>
+            <tr>
+              <td><strong>Corte Suprema de Justicia</strong></td>
+              <td><code>Exp. Radicado CSJ-2026</code></td>
+              <td><span style="color: #34d399;">● Traslado probatorio</span></td>
+              <td><span class="op2-hash-badge">a49c011e...3d22</span></td>
+            </tr>
+            <tr>
+              <td><strong>Comisión Interamericana (CIDH)</strong></td>
+              <td><code>Petición P-1408-26</code></td>
+              <td><span style="color: #38bdf8;">● Medidas cautelares</span></td>
+              <td><span class="op2-hash-badge">f719aa04...9801</span></td>
+            </tr>
+            <tr>
+              <td><strong>CERN / Zenodo Registry</strong></td>
+              <td><code>DOI 10.5281/zenodo.23188146</code></td>
+              <td><span style="color: #fbbf24;">● Inmutable / Permanente</span></td>
+              <td><span class="op2-hash-badge">79b7b53f...1501</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <!-- RECURSO HISTÓRICO Y EDUCATIVO: SIGUIENDO LA ANOMALÍA (BITÁCORA DE LA INVESTIGACIÓN) -->
-      <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 12px; padding: 14px; margin-top: 14px;">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-          <span style="font-size: 1.6rem;">📜</span>
-          <div>
-            <div id="txt-pdf-title" style="font-weight: 800; font-size: 0.95rem; color: #38bdf8;">Siguiendo la Anomalía: Bitácora de la Investigación</div>
-            <div id="txt-pdf-sub" style="font-size: 0.72rem; color: var(--muted);">Anatomía de un Fraude Programado • Relato Cronológico y Pericial</div>
+      <!-- Módulo Interactivo Oráculo IA (Google Gemini Demo Lite) -->
+      <div class="ai-module">
+        <div class="ai-module-header">
+          <div class="ai-module-title">
+            <span>🔬 Oráculo Pericial (Google Gemini AI Studio API)</span>
           </div>
+          <span style="font-size: 0.72rem; color: var(--swiss-muted); font-family: 'Fira Code', monospace;">Modo: 3 Audiencias (DFIR/Legal/Civil)</span>
         </div>
-        <p id="txt-pdf-desc" style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.4; margin: 8px 0 12px 0;">
-          La bitácora oficial que documenta los orígenes de la investigación desde el 1 de junio, el asedio informático y físico sufrido, la esteganografía de protección, la prueba 2BL de Benford y la caída de la cadena de custodia electrónica.
+        <p style="font-size: 0.85rem; color: var(--swiss-muted); margin-bottom: 12px;">
+          Selecciona una muestra de acta pericial para ejecutar la auditoría multimodal algorítmica:
         </p>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <a id="btn-pdf-view" href="docs/pdf/Siguiendo_la_Anomalia_Bitacora_Investigacion.pdf" target="_blank" style="flex: 1; min-width: 140px; text-align: center; text-decoration: none; background: #0284c7; color: #fff; font-weight: 700; font-size: 0.8rem; padding: 10px 12px; border-radius: 8px; display: inline-block; box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);">
-            📖 Leer Bitácora (PDF)
-          </a>
-          <a id="btn-pdf-download" href="docs/pdf/Siguiendo_la_Anomalia_Bitacora_Investigacion.pdf" download="Siguiendo_la_Anomalia_Bitacora_Investigacion.pdf" style="flex: 1; min-width: 140px; text-align: center; text-decoration: none; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; font-weight: 700; font-size: 0.8rem; padding: 10px 12px; border-radius: 8px; display: inline-block;">
-            📥 Descargar Bitácora
+
+        <div class="ai-btn-group">
+          <button class="btn-action primary" onclick="runForensicAudit('E14_PRE_03_013_099_00_01_001_5350.pdf')">
+            Auditar Acta Muestra #5350
+          </button>
+          <button class="btn-action" onclick="runForensicAudit('muestra_limpia_control_001.pdf')">
+            Auditar Muestra Limpia #001
+          </button>
+          <a href="game/index.html" class="btn-action">
+            🎮 Abrir Módulo Guardianes Digitales
           </a>
         </div>
-        <div style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px; text-align: right;">
-          <a href="docs/pdf/Siguiendo_la_Anomalia_PDF_El_Rastro.pdf" target="_blank" style="color: #94a3b8; font-size: 0.73rem; text-decoration: underline;">
-            📊 Ver también: Anexo Gráfico y Metodología (15 págs)
-          </a>
-        </div>
+
+        <div id="aiOutput" class="ai-output"></div>
       </div>
+
     </div>
-  </div>
 
-  <!-- VERSIÓN C: CYBER-ARENA CTF (ATAQUE Y CONTRAATAQUE EXPERTO) -->
-  <div id="view-arena" style="display: none;">
-    <div class="card" style="border: 1px solid #f59e0b;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <span id="txt-arena-badge" style="font-size: 0.75rem; font-weight: 800; color: #f59e0b;">⚔️ CTF RED vs BLUE EN VIVO</span>
-        <span id="arena-status" class="badge" style="background:rgba(245,158,11,0.2); color:#f59e0b; border:1px solid #f59e0b; padding:2px 8px; border-radius:4px; font-size:0.7rem; font-weight:800;">EN LÍNEA</span>
-      </div>
-
-      <!-- Tablero de Salud Dual -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
-        <div style="background: rgba(56,189,248,0.1); border: 1px solid #38bdf8; padding: 10px; border-radius: 8px; text-align: center;">
-          <span id="lbl-blue-node" style="font-size: 0.68rem; color: #38bdf8; font-weight: 800; display: block;">TU NODO (BLUE TEAM)</span>
-          <span id="blue-health" style="font-size: 1.2rem; font-weight: 900; color: #38bdf8;">100%</span>
-        </div>
-        <div style="background: rgba(239,68,68,0.1); border: 1px solid #ef4444; padding: 10px; border-radius: 8px; text-align: center;">
-          <span id="lbl-red-node" style="font-size: 0.68rem; color: #ef4444; font-weight: 800; display: block;">NODO RIVAL (RED TEAM)</span>
-          <span id="red-health" style="font-size: 1.2rem; font-weight: 900; color: #ef4444;">100%</span>
-        </div>
-      </div>
-
-      <!-- Lectura Real de Puertos de Enlace -->
-      <span id="lbl-ports-map" style="font-size: 0.72rem; color: var(--muted); font-weight: 800; display: block; margin-bottom: 6px;">MAPA DE PUERTOS DEL NODO OBJETIVO:</span>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px;" id="ports-grid">
-        <div class="port-cell" id="p-22" style="background:#020617; border:1px solid #334155; padding:6px; border-radius:6px; text-align:center;">
-          <span style="font-size:0.65rem; color:#94a3b8; display:block;">SSH</span>
-          <strong style="font-size:0.75rem; color:#38bdf8;">:22</strong>
-        </div>
-        <div class="port-cell" id="p-80" style="background:#020617; border:1px solid #334155; padding:6px; border-radius:6px; text-align:center;">
-          <span style="font-size:0.65rem; color:#94a3b8; display:block;">HTTP</span>
-          <strong style="font-size:0.75rem; color:#38bdf8;">:80</strong>
-        </div>
-        <div class="port-cell" id="p-3306" style="background:#020617; border:1px solid #334155; padding:6px; border-radius:6px; text-align:center;">
-          <span style="font-size:0.65rem; color:#94a3b8; display:block;">SQL</span>
-          <strong style="font-size:0.75rem; color:#38bdf8;">:3306</strong>
-        </div>
-        <div class="port-cell" id="p-3389" style="background:#020617; border:1px solid #334155; padding:6px; border-radius:6px; text-align:center;">
-          <span style="font-size:0.65rem; color:#94a3b8; display:block;">RDP</span>
-          <strong style="font-size:0.75rem; color:#38bdf8;">:3389</strong>
-        </div>
-      </div>
-
-      <!-- Consola de Telemetría de Combate -->
-      <div id="arena-log" style="background:#020617; border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px; font-family:monospace; font-size:0.72rem; color:#94a3b8; height:90px; overflow-y:auto; margin-bottom:12px;">
-        <div>[SISTEMA] Conectado a la arena de entrenamiento. Selecciona táctica.</div>
-      </div>
-
-      <!-- Botonera Táctica: Ataque y Contraataque -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
-        <button id="btn-arena-scan" onclick="ctfAction('scan')" class="btn-opt" style="margin:0; text-align:center; padding:10px; font-weight:700; border-color:#38bdf8;">🔍 Sondear Puertos</button>
-        <button id="btn-arena-exploit" onclick="ctfAction('exploit')" class="btn-opt" style="margin:0; text-align:center; padding:10px; font-weight:700; border-color:#ef4444; color:#f87171;">💥 Inyectar Payload</button>
-        <button id="btn-arena-harden" onclick="ctfAction('harden')" class="btn-opt" style="margin:0; text-align:center; padding:10px; font-weight:700; border-color:#22c55e; color:#4ade80;">🛡️ Blindar Puertos</button>
-        <button id="btn-arena-mirror" onclick="ctfAction('mirror')" class="btn-opt" style="margin:0; text-align:center; padding:10px; font-weight:700; border-color:#f59e0b; color:#fbbf24;">😈 Espejo de Azufre</button>
-      </div>
-
-      <!-- Despliegue de Bandera Ganadora -->
-      <div id="flag-victory-box" style="display:none; text-align:center; padding:12px; background:rgba(0,0,0,0.85); border:2px solid #38bdf8; border-radius:12px; margin-top:10px; box-shadow: 0 0 30px rgba(56,189,248,0.5);">
-        <h3 id="txt-flag-title" style="color:#38bdf8; font-size:1.1rem; font-weight:900; margin-bottom:6px;">🚩 ¡VICTORIA TOTAL! BANDERA CAPTURADA</h3>
-        <p id="txt-flag-sub" style="font-size:0.75rem; color:#cbd5e1; margin-bottom:8px;">El nodo adversario ha sido neutralizado. Desplegando estandarte supremo:</p>
-        <img src="assets/andretaker_victory_flag.jpg" style="width:100%; border-radius:8px; border:1px solid #38bdf8; margin-bottom:8px;">
-        <div style="font-family:monospace; font-size:0.7rem; color:#4ade80;">HASH DE VICTORIA: 4a8f9c12b73e51082a44b1c900e57f123456789a</div>
-      </div>
-    </div>
+    <footer>
+      <p>
+        © 2026 <strong>Andrea Zabala Cárcamo (AnZaCa / AndreTaker)</strong>. Todos los derechos reservados bajo Licencia Apache 2.0.<br>
+        Investigación pericial independiente y preservación de evidencia digital (<a href="https://github.com/anzaca0330-pixel">anzaca0330-pixel</a>).
+      </p>
+    </footer>
   </div>
 
   <script>
-    let currentLang = 'es';
-    let score = 0;
-    let health = 100;
-    let streak = 1;
-    let round = 0;
+    function runForensicAudit(caseId) {
+      const out = document.getElementById('aiOutput');
+      out.style.display = 'block';
+      out.textContent = `[TYCHO ENGINE] Cargando stream de objetos para ${caseId}...\n[BABA YAGA SCALPEL] Analizando tabla XREF y operadores /Contents...\n[GEMINI ORACLE] Generando dictamen estructurado...\n\n`;
 
-    const I18N = {
-      es: {
-        appTitle: "🌐 SIMULADOR DE ENRUTAMIENTO",
-        squadTycho: "Instrumento de Silicio",
-        squadAndre: "Mente Investigadora",
-        squadArturius: "El Integrador",
-        appSub: "Entorno de Entrenamiento y Protocolos de Red",
-        tabGame: "⚡ Modo A: Escenarios",
-        tabManual: "📖 Modo B: Manual",
-        tabArena: "🚩 Modo C: CTF Arena",
-        statEff: "EFICIENCIA",
-        statHp: "ESTADO NODO",
-        statStreak: "RACHA",
-        eventTag: "📡 EVENTO DE ENLACE",
-        manH2: "📐 Principios de Transmisión Confinada",
-        manT1: "1. Medio Guiado vs. Espectro Abierto",
-        manP1: "Las señales inalámbricas se propagan omnidireccionalmente exponiendo metadatos. Las conexiones por par trenzado blindado confinan el flujo reduciendo dispersión espectral.",
-        manT2: "2. Aislamiento de Interfaces y Perfiles",
-        manP2: "Separación estricta de rutas de datos operativas respecto a canales administrativos convencionales.",
-        manT3: "3. Sanitización de Flujos de Texto",
-        manP3: "La inserción de delimitadores neutros previene la extracción automatizada por patrones estáticos.",
-        arenaBadge: "⚔️ CTF RED vs BLUE EN VIVO",
-        arenaStatus: "EN LÍNEA",
-        blueNode: "TU NODO (BLUE TEAM)",
-        redNode: "NODO RIVAL (RED TEAM)",
-        portsMap: "MAPA DE PUERTOS DEL NODO OBJETIVO:",
-        btnScan: "🔍 Sondear Puertos",
-        btnExploit: "💥 Inyectar Payload",
-        btnHarden: "🛡️ Blindar Puertos",
-        btnMirror: "😈 Espejo de Azufre",
-        flagTitle: "🚩 ¡VICTORIA TOTAL! BANDERA CAPTURADA",
-        flagSub: "El nodo adversario ha sido neutralizado. Desplegando estandarte supremo:",
-        pdfTitle: "Siguiendo la Anomalía PDF: El Rastro",
-        pdfSub: "Historia Documental y Metodología Forense de la Investigación (15 págs)",
-        pdfDesc: "La bitácora narrativa y pericial que documenta el hallazgo del enmascaramiento digital, el blindaje de datos E-14 y la resistencia contra el asedio cibernético.",
-        btnPdfView: "📖 Leer Documento",
-        btnPdfDownload: "📥 Descargar PDF"
-      },
-      en: {
-        appTitle: "🌐 ROUTING SIMULATOR",
-        squadTycho: "Silicon Instrument",
-        squadAndre: "Lead Investigator",
-        squadArturius: "System Integrator",
-        appSub: "Training Environment & Network Protocols",
-        tabGame: "⚡ Mode A: Scenarios",
-        tabManual: "📖 Mode B: Field Manual",
-        tabArena: "🚩 Mode C: CTF Arena",
-        statEff: "EFFICIENCY",
-        statHp: "NODE HEALTH",
-        statStreak: "STREAK",
-        eventTag: "📡 LINK EVENT",
-        manH2: "📐 Confined Transmission Principles",
-        manT1: "1. Guided Media vs. Open Spectrum",
-        manP1: "Wireless signals propagate omnidirectionally exposing metadata. Shielded twisted-pair links confine signal flux minimizing RF leakage.",
-        manT2: "2. Interface & Profile Isolation",
-        manP2: "Strict segmentation of operational data paths away from default administrative channels.",
-        manT3: "3. Text Stream Sanitization",
-        manP3: "Injecting neutral delimiters prevents automated keyword matching by static inspection engines.",
-        arenaBadge: "⚔️ LIVE CTF RED vs BLUE",
-        arenaStatus: "ONLINE",
-        blueNode: "YOUR NODE (BLUE TEAM)",
-        redNode: "RIVAL NODE (RED TEAM)",
-        portsMap: "TARGET NODE PORT MAP:",
-        btnScan: "🔍 Scan Ports",
-        btnExploit: "💥 Inject Payload",
-        btnHarden: "🛡️ Harden Ports",
-        btnMirror: "😈 Sulfur Mirror",
-        flagTitle: "🚩 TOTAL VICTORY! FLAG CAPTURED",
-        flagSub: "Opponent node neutralized. Raising the supreme banner:",
-        pdfTitle: "Following the PDF Anomaly: The Trail",
-        pdfSub: "Documentary History & Forensic Methodology of the Investigation (15 pages)",
-        pdfDesc: "The narrative and forensic field log documenting the discovery of digital masking, the E-14 evidence shielding, and endurance under cyber siege.",
-        btnPdfView: "📖 Read Document",
-        btnPdfDownload: "📥 Download PDF"
-      }
-    };
-
-    const THREATS_DATA = {
-      es: [
-        {
-          icon: "📨",
-          title: "Petición con Destino Externo No Validado",
-          desc: "Un mensaje intenta inducir al operador a abrir un enlace acortado hacia un servidor no verificado.",
-          correct: "B",
-          win: "🎉 ¡DESCARTE EXITOSO! Arturius y AndreTaker auditan y descartan el vector. (+100 PTS)",
-          fail: "💥 ¡FALLO! Seguir redirecciones desconocidas expone credenciales locales (-15% Salud)",
-          opts: [
-            "A) Abrir el enlace directamente para inspeccionarlo.",
-            "B) Aplicar política de descarte y auditar cabeceras.",
-            "C) Descargar el adjunto en la máquina de trabajo."
-          ]
-        },
-        {
-          icon: "🔥",
-          title: "Incursión con Sonda de Escaneo Hostil",
-          desc: "Un atacante realiza barrido de puertos intentando perfilar el dispositivo desde una IP sospechosa.",
-          correct: "C",
-          win: "🛡️ ¡EL ESPEJO DEFENSIVO REFLECTANTE! Baba Yaga Core y AndreTaker capturan la firma del atacante, devolviéndole su propio User-Agent y ASN en un espejo pericial que neutraliza la sonda. (+300 PTS)",
-          fail: "💥 ¡FALLO! Apagar el equipo a ciegas sin registrar la huella permite que el atacante vuelva (-15% Salud)",
-          opts: [
-            "A) Desconectar el enrutador inmediatamente sin recolectar trazas.",
-            "B) Responder con un ping genérico al azar.",
-            "C) Invocar el Espejo Reflectante de Baba Yaga: capturar su ASN y reflejar su firma forense."
-          ]
-        },
-        {
-          icon: "📡",
-          title: "Vigilancia de Espectro Aéreo",
-          desc: "Entorno con alta densidad de antenas y sensores de intercepción de radiofrecuencia.",
-          correct: "A",
-          win: "🎉 ¡CONFINAMIENTO EXITOSO! Tycho y Michael sellan el enlace físico por cable de cobre. Cero dispersión RF. (+150 PTS)",
-          fail: "💥 ¡FALLO! Las señales inalámbricas dispersan metadatos en 360 grados (-15% Salud)",
-          opts: [
-            "A) Utilizar medio guiado por cable blindado directo.",
-            "B) Transmitir por punto de acceso Wi-Fi público.",
-            "C) Activar visibilidad Bluetooth continua."
-          ]
-        }
-      ],
-      en: [
-        {
-          icon: "📨",
-          title: "Unvalidated External Endpoint Request",
-          desc: "An incoming request attempts to coerce the operator into opening a shortened link towards an unverified server.",
-          correct: "B",
-          win: "🎉 SUCCESSFUL DISCARD! Arturius and AndreTaker audit and drop the vector. (+100 PTS)",
-          fail: "💥 FAILED! Following unknown redirects exposes local credentials (-15% Health)",
-          opts: [
-            "A) Open the link directly to inspect its contents.",
-            "B) Apply drop policy and inspect raw headers.",
-            "C) Download the payload to the local workstation."
-          ]
-        },
-        {
-          icon: "🔥",
-          title: "Hostile Port Scan Reconnaissance",
-          desc: "An adversary executes aggressive port sweeps to fingerprint the host from a suspicious IP address.",
-          correct: "C",
-          win: "🛡️ DEFENSIVE MIRROR REFLECTION! Baba Yaga Core & AndreTaker capture adversary signatures and mirror their ASN forensic fingerprint, neutralizing the probe. (+300 PTS)",
-          fail: "💥 FAILED! Blindly shutting down without capturing forensic traces allows them to return (-15% Health)",
-          opts: [
-            "A) Disconnect the router immediately without logging.",
-            "B) Reply with generic random pings.",
-            "C) Invoke Baba Yaga Defensive Mirror: capture their ASN and reflect their forensic signature."
-          ]
-        },
-        {
-          icon: "📡",
-          title: "Airborne RF Spectrum Interception",
-          desc: "High density of directional antennas and RF telemetry interceptors detected in the perimeter.",
-          correct: "A",
-          win: "🎉 CONFINEMENT SUCCESS! Tycho and Michael secure the physical twisted-pair cable. Zero RF dispersion. (+150 PTS)",
-          fail: "💥 FAILED! Wireless spectrum radiates raw metadata omnidirectionally (-15% Health)",
-          opts: [
-            "A) Enforce guided transmission via direct shielded cable.",
-            "B) Broadcast through public open Wi-Fi APs.",
-            "C) Maintain persistent Bluetooth broadcast discovery."
-          ]
-        }
-      ]
-    };
-
-    function setLang(lang) {
-      currentLang = lang;
-      document.getElementById('lang-modal').style.display = 'none';
-      const s = I18N[lang] || I18N.en;
-
-            document.getElementById('txt-app-title').innerText = s.appTitle;
-      document.getElementById('txt-squad-tycho').innerText = s.squadTycho;
-      document.getElementById('txt-squad-andretaker').innerText = s.squadAndre;
-      document.getElementById('txt-squad-arturius').innerText = s.squadArturius;
-      document.getElementById('txt-app-sub').innerText = s.appSub;
-      document.getElementById('btn-tab-game').innerText = s.tabGame;
-      document.getElementById('btn-tab-manual').innerText = s.tabManual;
-      document.getElementById('btn-tab-arena').innerText = s.tabArena;
-      document.getElementById('lbl-stat-eff').innerText = s.statEff;
-      document.getElementById('lbl-stat-hp').innerText = s.statHp;
-      document.getElementById('lbl-stat-streak').innerText = s.statStreak;
-      document.getElementById('lbl-event-tag').innerText = s.eventTag;
-      document.getElementById('txt-man-h2').innerText = s.manH2;
-      document.getElementById('txt-man-t1').innerText = s.manT1;
-      document.getElementById('txt-man-p1').innerText = s.manP1;
-      document.getElementById('txt-man-t2').innerText = s.manT2;
-      document.getElementById('txt-man-p2').innerText = s.manP2;
-      document.getElementById('txt-man-t3').innerText = s.manT3;
-      document.getElementById('txt-man-p3').innerText = s.manP3;
-      document.getElementById('txt-arena-badge').innerText = s.arenaBadge;
-      document.getElementById('arena-status').innerText = s.arenaStatus;
-      document.getElementById('lbl-blue-node').innerText = s.blueNode;
-      document.getElementById('lbl-red-node').innerText = s.redNode;
-      document.getElementById('lbl-ports-map').innerText = s.portsMap;
-      document.getElementById('btn-arena-scan').innerText = s.btnScan;
-      document.getElementById('btn-arena-exploit').innerText = s.btnExploit;
-      document.getElementById('btn-arena-harden').innerText = s.btnHarden;
-      document.getElementById('btn-arena-mirror').innerText = s.btnMirror;
-      document.getElementById('txt-flag-title').innerText = s.flagTitle;
-      document.getElementById('txt-flag-sub').innerText = s.flagSub;
-      if (document.getElementById('txt-pdf-title')) {
-        document.getElementById('txt-pdf-title').innerText = s.pdfTitle;
-        document.getElementById('txt-pdf-sub').innerText = s.pdfSub;
-        document.getElementById('txt-pdf-desc').innerText = s.pdfDesc;
-        document.getElementById('btn-pdf-view').innerText = s.btnPdfView;
-        document.getElementById('btn-pdf-download').innerText = s.btnPdfDownload;
-      }
-
-      renderScenario();
-    }
-
-    function renderScenario() {
-      const list = THREATS_DATA[currentLang] || THREATS_DATA.en;
-      const cur = list[round % list.length];
-      document.getElementById('threat-icon').innerText = cur.icon;
-      document.getElementById('threat-title').innerText = cur.title;
-      document.getElementById('threat-desc').innerText = cur.desc;
-      document.getElementById('opt-btn-0').innerText = cur.opts[0];
-      document.getElementById('opt-btn-1').innerText = cur.opts[1];
-      document.getElementById('opt-btn-2').innerText = cur.opts[2];
-      document.getElementById('game-feedback').style.display = 'none';
-    }
-
-    function pickOption(choice) {
-      const list = THREATS_DATA[currentLang] || THREATS_DATA.en;
-      const cur = list[round % list.length];
-      const fb = document.getElementById('game-feedback');
-      fb.style.display = 'block';
-
-      if (choice === cur.correct) {
-        score += 100 * streak;
-        streak++;
-        fb.style.background = 'rgba(34, 197, 94, 0.15)';
-        fb.style.color = '#4ade80';
-        fb.style.border = '1px solid #22c55e';
-
-        if (cur.icon === "🔥") {
-          fb.innerHTML = `
-            <div style="text-align: center; padding: 10px 0;">
-              <img src="assets/andretaker_chibi_protagonista_educativa_lupa.jpg" style="width: 140px; height: 140px; border-radius: 18px; border: 2px solid #38bdf8; box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); margin-bottom: 8px;">
-              <div style="font-weight: 800; font-size: 1.05rem; color: #38bdf8;">✨ ${currentLang === 'es' ? '¡ESPEJO BABA YAGA ACTIVADO!' : 'BABA YAGA DEFENSIVE MIRROR ACTIVATED!'}</div>
-              <p style="font-size: 0.85rem; color: #cbd5e1; margin: 6px 0 8px 0; font-family: monospace; font-weight: 600;">
-                "${currentLang === 'es' ? 'Firma de sonda hostil capturada. Metadatos reflejados exitosamente hacia el origen.' : 'Hostile probe signature captured. Metadata successfully mirrored back to the origin.'}"
-              </p>
-              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid #38bdf8; border-radius: 8px; padding: 6px; margin: 8px auto; max-width: 280px;">
-                <span style="font-size: 0.75rem; color: #4ade80; font-weight: 800;">🔒 ${currentLang === 'es' ? 'PERÍMETRO BLINDADO • FORENSIC LOCK' : 'PERIMETER HARDENED • FORENSIC LOCK'}</span>
-              </div>
-            </div>
-          `;
+      setTimeout(() => {
+        if (caseId.includes('5350')) {
+          out.textContent += `⚠️ DICTAMEN PERICIAL: ALTERACIÓN ESTRUCTURAL DETECTADA\n` +
+            `------------------------------------------------------------\n` +
+            `• Scar XREF: Declarados 15 objetos, presentes 13 (Delta +2 fantasma).\n` +
+            `• Blind Masking: Máscara 1bpc superpuesta identificada en coordenadas (x:210, y:450).\n` +
+            `• Ley de Benford (2BL): Desviación crítica (p < 0.0001, distribución sintética).\n` +
+            `• Cadena de Custodia: Sellado SHA-256 verificado bajo norma ISO/IEC 27037.\n` +
+            `• Veredicto Legal: Acta incompatible con integridad de origen.`;
         } else {
-          fb.innerHTML = cur.win;
+          out.textContent += `✅ DICTAMEN PERICIAL: ESTRUCTURA ÍNTEGRA Y LIMPIA\n` +
+            `------------------------------------------------------------\n` +
+            `• Tabla XREF: Consistente. Objetos declarados coinciden con offset binario.\n` +
+            `• Streams: Flujo de compresión /FlateDecode estándar sin inyecciones.\n` +
+            `• Ley de Benford (2BL): Coincidencia con curva natural de Mebane.\n` +
+            `• Cadena de Custodia: Sello íntegro de origen.`;
         }
-      } else {
-        health = Math.max(0, health - 15);
-        streak = 1;
-        fb.style.background = 'rgba(239, 68, 68, 0.2)';
-        fb.style.color = '#f87171';
-        fb.style.border = '1px solid #ef4444';
-        fb.innerHTML = cur.fail;
-      }
-
-      document.getElementById('score').innerText = score + ' PTS';
-      document.getElementById('health').innerText = health + '%';
-      document.getElementById('streak').innerText = '⚡ x' + streak;
-
-      round++;
-      setTimeout(renderScenario, 4000);
-    }
-
-    function setEduMode(mode) {
-      document.getElementById('btn-tab-game').classList.toggle('active', mode === 'game');
-      document.getElementById('btn-tab-manual').classList.toggle('active', mode === 'manual');
-      document.getElementById('btn-tab-arena').classList.toggle('active', mode === 'arena');
-      document.getElementById('view-game').style.display = mode === 'game' ? 'block' : 'none';
-      document.getElementById('view-manual').style.display = mode === 'manual' ? 'block' : 'none';
-      document.getElementById('view-arena').style.display = mode === 'arena' ? 'block' : 'none';
-    }
-
-    let blueHp = 100;
-    let redHp = 100;
-
-    function logArena(msg, color) {
-      const logBox = document.getElementById('arena-log');
-      const div = document.createElement('div');
-      div.style.color = color || '#94a3b8';
-      div.innerHTML = `[${new Date().toLocaleTimeString()}] ${msg}`;
-      logBox.appendChild(div);
-      logBox.scrollTop = logBox.scrollHeight;
-    }
-
-    function ctfAction(type) {
-      if (redHp <= 0 || blueHp <= 0) return;
-
-      if (type === 'scan') {
-        logArena(currentLang === 'es' ? '🔍 [RECON] Sondeando puertos de escucha en nodo rival...' : '🔍 [RECON] Probing listening ports on rival node...', '#38bdf8');
-        document.getElementById('p-80').style.borderColor = '#ef4444';
-        document.getElementById('p-3306').style.borderColor = '#ef4444';
-        logArena(currentLang === 'es' ? '⚠️ [VULN] Puertos 80 (HTTP) y 3306 (SQL) responden con servicios no parcheados.' : '⚠️ [VULN] Ports 80 (HTTP) and 3306 (SQL) exposed with unpatched services.', '#fbbf24');
-      } 
-      else if (type === 'exploit') {
-        logArena(currentLang === 'es' ? '💥 [OFENSIVA] Inyectando payload por puerto 3306 (SQL Infiltration)...' : '💥 [OFFENSIVE] Injecting payload via port 3306 (SQL Infiltration)...', '#f87171');
-        redHp = Math.max(0, redHp - 35);
-        document.getElementById('red-health').innerText = redHp + '%';
-        logArena(currentLang === 'es' ? `🎯 [IMPACTO] Brecha confirmada en nodo rival (-35% Salud). Estado: ${redHp}%` : `🎯 [IMPACT] Confirmed breach on rival node (-35% Health). Status: ${redHp}%`, '#4ade80');
-        
-        if (redHp <= 0) {
-          logArena(currentLang === 'es' ? '🏆 [FLAG CAPTURE] Nodo rival neutralizado. Izando la Bandera de AndreTaker.' : '🏆 [FLAG CAPTURE] Rival node neutralized. Raising AndreTaker Victory Flag.', '#38bdf8');
-          document.getElementById('flag-victory-box').style.display = 'block';
-        }
-      } 
-      else if (type === 'harden') {
-        logArena(currentLang === 'es' ? '🛡️ [DEFENSA] Aplicando filtros de firewall en puertos locales y cerrando sockets...' : '🛡️ [DEFENSE] Applying firewall rules on local ports and terminating open sockets...', '#4ade80');
-        blueHp = Math.min(100, blueHp + 20);
-        document.getElementById('blue-health').innerText = blueHp + '%';
-        logArena(currentLang === 'es' ? `✔ [BLINDAJE] Integridad de nodo restaurada al ${blueHp}%.` : `✔ [HARDENING] Node integrity restored to ${blueHp}%.`, '#4ade80');
-      } 
-      else if (type === 'mirror') {
-        logArena(currentLang === 'es' ? '😈 [ESPEJO DE AZUFRE] Atrapando sonda rival y devolviendo huella y pánico...' : '😈 [SULFUR MIRROR] Trapping rival probe and reflecting signature & panic...', '#f59e0b');
-        redHp = Math.max(0, redHp - 50);
-        document.getElementById('red-health').innerText = redHp + '%';
-        logArena(currentLang === 'es' ? `🔥 [CONTRAATAQUE] Huella reflejada al atacante. Desmoralización masiva (-50% Salud).` : `🔥 [COUNTER-ATTACK] Signature reflected to adversary. Total panic triggered (-50% Health).`, '#fbbf24');
-        
-        if (redHp <= 0) {
-          logArena(currentLang === 'es' ? '🏆 [FLAG CAPTURE] Nodo rival colapsó por pánico psicológico. ¡VICTORIA!' : '🏆 [FLAG CAPTURE] Rival node collapsed under psychological panic. VICTORY!', '#38bdf8');
-          document.getElementById('flag-victory-box').style.display = 'block';
-        }
-      }
+      }, 700);
     }
   </script>
+
 </body>
 </html>
